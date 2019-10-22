@@ -1,0 +1,25 @@
+{{>headNoScript}}
+
+<body>
+    {{>header}}
+    <div class="main">
+        <form class="search-form">
+            <label for="address">City Name</label>
+            <input id="address" name="address" type="text" placeholder="Enter city name please" />
+            <button type='Submit'>Search</button>
+        </form>
+
+        <div class="search-results">
+            <div id="search-info">
+                <p class="location"></p>
+                <p class="long"></p>
+                <p class="short"></p>
+            </div>
+            <p id="search-error"></p>
+        </div>
+    </div>
+    {{>footer}}
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

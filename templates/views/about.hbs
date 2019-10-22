@@ -1,0 +1,21 @@
+{{>headNoScript}}
+
+<body>
+    {{>header}}
+    <div class="main">
+        <div class="card">
+            <div class="photo" style="background: url({{image}}) 50% 10% / cover no-repeat !important"></div>
+            <div class="details">
+                <p>Nickname: {{author}}</p>
+                <p>Exp: {{exp}}</p>
+                <p>Programming language: {{skills.language}}</p>
+                <p>JS Runtime: {{skills.runtime}}</p>
+                <p>Framework: {{skills.framework}}</p>
+                <p>Database: {{skills.database}}</p>
+            </div>
+        </div>        
+    </div>
+    {{>footer}}
+</body>
+
+</html>
