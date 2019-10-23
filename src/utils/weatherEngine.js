@@ -22,7 +22,7 @@ const weatherEngine = address => {
           // console.log(long);
           // console.log(short);
 
-          resolve({ timezone, short, long });
+          resolve({ timezone, short, long, loc });
         }
       );
     });

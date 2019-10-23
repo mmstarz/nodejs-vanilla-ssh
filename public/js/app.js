@@ -14,6 +14,7 @@ const successSearch = document.querySelector("#search-info");
 const short = successSearch.querySelector(".short");
 const long = successSearch.querySelector(".long");
 const loc = successSearch.querySelector(".location");
+const tz = successSearch.querySelector(".timezone");
 const resultsSearch = document.querySelector(".search-results");
 
 const searchButton = document.querySelector(".search-form button");
@@ -36,30 +37,34 @@ closeButton.addEventListener("mouseenter", () => {
 });
 
 closeButton.addEventListener("click", () => {
-  short.textContent = "";
+  tz.textContent = "";
+  loc.textContent = "";
   long.textContent = "";
-  loc.textContent = "";  
+  short.textContent = "";
 
+  tz.classList.remove("appear");
   loc.classList.remove("appear");
   long.classList.remove("appear");
   short.classList.remove("appear");
 
-  resultsSearch.classList.remove("loading");  
+  resultsSearch.classList.remove("loading");
   successSearch.classList.remove("found");
 
   address.value = "";
-})
+});
 
 const preSearch = () => {
-  short.textContent = "";
+  tz.textContent = "";
+  loc.textContent = "";
   long.textContent = "";
-  loc.textContent = "";  
+  short.textContent = "";
 
+  tz.classList.remove("appear");
   loc.classList.remove("appear");
   long.classList.remove("appear");
   short.classList.remove("appear");
 
-  resultsSearch.classList.add("loading");  
+  resultsSearch.classList.add("loading");
   successSearch.classList.remove("found");
 };
 
@@ -67,11 +72,13 @@ const successFound = data => {
   resultsSearch.classList.remove("loading");
   successSearch.classList.add("found");
 
+  tz.classList.add("appear");
   loc.classList.add("appear");
   long.classList.add("appear");
   short.classList.add("appear");
 
-  loc.textContent = data.timezone;
+  tz.textContent = "Timezone: " + data.timezone;
+  loc.textContent = data.loc;
   long.textContent = data.long;
   short.textContent = data.short;
 };
