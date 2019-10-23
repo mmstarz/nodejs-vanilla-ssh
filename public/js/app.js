@@ -67,7 +67,7 @@ form.addEventListener("submit", async event => {
   preSearch();
 
   try {
-    // fetch data request
+    // fetch data request (no domain goes for internal API)
     const response = await fetch(`/weather?address=${address.value}`);
     const data = await response.json();
     // err case
