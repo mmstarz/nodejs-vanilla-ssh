@@ -204,7 +204,11 @@ p {
 }
 
 
-/* search form */
+/*
+=====================================
+            SEARCH SECTION
+=====================================
+*/
 
 .search-form {
     display: flex;
@@ -262,10 +266,14 @@ p {
     animation: loading .5s ease-in infinite;
 }
 
-#search-info, #search-error {
+#search-info {
     background: #f5f9fbb0;
     padding: 1em;
     opacity: 0;
+    position: relative;
+    width: 95%;
+    margin: auto;
+    overflow-x: hidden;
 }
 
 #search-info.found {
@@ -273,21 +281,13 @@ p {
     transition: opacity .5s ease-out;
 }
 
-.location, .long, .short, #search-error {
+.location, .long, .short {
     color: #364146;
     text-shadow: 2px 2px 10px #09efd9;
 }
 
-.location, .short, #search-error {
+.location, .short {
     transform: translateX(-100%);
-}
-
-#search-error.found {
-    opacity: 1;
-    transform: translateX(0%);
-    transition-property: transform, opacity;
-    transition-duration: 500ms;
-    transition-timing-function: ease-out;
 }
 
 .long {
@@ -305,8 +305,141 @@ p {
 }
 
 
-/* .not(selector) */
+/*
+=====================================
+            CLOSE BUTTON
+=====================================
+*/
 
+.close-btn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: #00000085;
+    width: 2em;
+    height: 2em;
+    border-radius: .5em;
+    margin: 0.5em;
+}
+
+.close-dash-one {
+    width: 100%;
+    padding: .1em;    
+    position: relative;
+    top: 46%;
+    transform: rotate(45deg) scale(.8);
+    transition: transform .5s ease-out;
+}
+
+.close-dash-two {
+    width: 100%;
+    padding: .1em;    
+    position: relative;
+    top: 38%;
+    transform: rotate(-45deg) scale(.8);
+    transition: transform .5s ease-out;
+}
+
+/*
+=====================================
+            MOUSE ENTER
+=====================================
+*/
+
+.close-btn.enter .close-dash-one {
+    background: #ec6e6e;
+    animation: minOne .5s ease-out forwards;
+}
+
+.close-btn.enter .close-dash-two {
+    background: #ec6e6e;
+    animation: minTwo .5s ease-out forwards;
+}
+
+@keyframes minOne {
+    0% {        
+        transform: scale(1) rotate(45deg);
+    }
+    30% {
+        transform: scale(.2) rotate(90deg);
+    }
+    60% {
+        transform: scale(1) rotate(135deg);
+    }
+    100% {        
+        transform: scale(.8) rotate(135deg);
+    }
+}
+
+@keyframes minTwo {
+    0% {       
+        transform: scale(1) rotate(-45deg);
+    }
+    30% {
+        transform: scale(.2) rotate(0deg);
+    }
+    60% {
+        transform: scale(1) rotate(45deg);
+    }
+    100% {        
+        transform: scale(.8) rotate(45deg);
+    }
+}
+
+
+/*
+======================================
+            MOUSE LEAVE
+======================================
+*/
+
+.close-btn.leave {
+    background: transparent;
+}
+
+.close-btn.leave .close-dash-one {
+    background: #cc1111;
+    animation: minOneReverse .5s ease-out alternate-reverse;
+}
+
+.close-btn.leave .close-dash-two {
+    background: #cc1111;
+    animation: minTwoReverse .5s ease-out alternate-reverse;
+}
+
+@keyframes minOneReverse {
+    0% {
+        /* background: #ec6e6e; */
+        transform: scale(.8) rotate(135deg);
+    }
+    30% {
+        transform: scale(1) rotate(135deg);
+    }
+    60% {
+        transform: scale(.2) rotate(90deg);
+    }
+    100% {
+        /* background: black; */
+        transform: scale(1) rotate(45deg);
+    }
+}
+
+@keyframes minTwoReverse {
+    0% {
+        /* background: #ec6e6e; */
+        transform: scale(.8) rotate(45deg);
+    }
+    30% {
+        transform: scale(1) rotate(45deg);
+    }
+    60% {
+        transform: scale(.2) rotate(0deg);
+    }
+    100% {
+        /* background: black; */
+        transform: scale(1) rotate(-45deg);
+    }
+}
 
 /* animations */
 

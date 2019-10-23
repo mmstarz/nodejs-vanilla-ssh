@@ -1,13 +1,20 @@
 console.log("JS file loaded");
 // fetch() is not a part of node it is a part of client side JS
 // https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch
-// fetch("http://puzzle.mead.io/puzzle")
+// fetch("url")
 //   .then(response => {
 //     return response.json();
 //   })
 //   .then(data => {
 //     console.log(data);
 //   });
+const form = document.querySelector("form");
+const address = document.querySelector("#address");
+const successSearch = document.querySelector("#search-info");
+const short = successSearch.querySelector(".short");
+const long = successSearch.querySelector(".long");
+const loc = successSearch.querySelector(".location");
+const resultsSearch = document.querySelector(".search-results");
 
 const searchButton = document.querySelector(".search-form button");
 searchButton.addEventListener("click", () => {
@@ -17,29 +24,44 @@ searchButton.addEventListener("click", () => {
   }, 300);
 });
 
-const form = document.querySelector("form");
-const address = document.querySelector("#address");
-const successSearch = document.querySelector("#search-info");
-const short = successSearch.querySelector(".short");
-const long = successSearch.querySelector(".long");
-const loc = successSearch.querySelector(".location");
-const errorSearch = document.querySelector("#search-error");
-const resultsSearch = document.querySelector(".search-results");
+const closeButton = document.querySelector(".close-btn");
+closeButton.addEventListener("mouseleave", () => {
+  closeButton.classList.remove("enter");
+  closeButton.classList.add("leave");
+});
 
-const preSearch = () => {
+closeButton.addEventListener("mouseenter", () => {
+  closeButton.classList.remove("leave");
+  closeButton.classList.add("enter");
+});
+
+closeButton.addEventListener("click", () => {
   short.textContent = "";
   long.textContent = "";
   loc.textContent = "";  
-  errorSearch.textContent = "";
 
   loc.classList.remove("appear");
   long.classList.remove("appear");
   short.classList.remove("appear");
 
-  resultsSearch.classList.add("loading");
-  errorSearch.classList.remove("found");
+  resultsSearch.classList.remove("loading");  
   successSearch.classList.remove("found");
-}
+
+  address.value = "";
+})
+
+const preSearch = () => {
+  short.textContent = "";
+  long.textContent = "";
+  loc.textContent = "";  
+
+  loc.classList.remove("appear");
+  long.classList.remove("appear");
+  short.classList.remove("appear");
+
+  resultsSearch.classList.add("loading");  
+  successSearch.classList.remove("found");
+};
 
 const successFound = data => {
   resultsSearch.classList.remove("loading");
@@ -56,9 +78,9 @@ const successFound = data => {
 
 const failFound = data => {
   resultsSearch.classList.remove("loading");
-  errorSearch.classList.add("found");
-
-  errorSearch.textContent = data;
+  successSearch.classList.add("found");
+  short.classList.add("appear");
+  short.textContent = data;
 };
 
 form.addEventListener("submit", async event => {
