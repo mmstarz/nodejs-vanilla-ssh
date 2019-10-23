@@ -32,9 +32,11 @@ for Mac
 
 5. go to https://github.com/settings/profile
 select "SSH and GPG keys" => "new SSH key"
+
 fill up "Title"
 then at your terminal run
 > cat ~/.ssh/id_rsa.pub
+
 that will print your ssh key content copy and paste it to the github "Key"
 and press "Set KEY"
 
