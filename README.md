@@ -23,8 +23,10 @@ if its running successfully you will see:
 Agent pid 207 (where pid stands for "process id")
 
 4. register file ssh-add "filepath"
+
 for Windows and Linux
 > ssh-add ~/.ssh/id_rsa
+
 for Mac
 > ssh-add -K ~/.ssh/id_rsa
 
