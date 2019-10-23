@@ -100,11 +100,11 @@ form.addEventListener("submit", async event => {
     // view changes
     successFound(data);
     //result
-    return console.log({ ...data });
+    // return console.log({ ...data });
   } catch (err) {
     //view changes
     failFound(err);
     // result
-    return console.log(err);
+    // return console.log(err);
   }
 });
