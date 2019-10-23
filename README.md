@@ -20,7 +20,7 @@ for Linux
 if its running successfully you will see:
 Agent pid 207 (where pid stands for "process id")
 
-4. register file ssh-add <filepath>
+4. register file ssh-add "filepath"
 for Windows and Linux
 > ssh-add ~/.ssh/id_rsa
 for Mac
@@ -42,11 +42,11 @@ yes
 look for instructions at your github repo.
 
 at Windows explorer address bar or through windows+R command
-%USERPROFILE%\ssh or  %USERPROFILE%\.ssh
+> %USERPROFILE%\ssh or  %USERPROFILE%\.ssh
 
 # To find out which entry is for a known hostname in known_hosts
-> ssh-keygen -H  -F <hostname or IP address>
+> ssh-keygen -H  -F "hostname or IP address"
 # To delete a single entry from known_hosts
-> ssh-keygen -R <hostname or IP address>
+> ssh-keygen -R "hostname or IP address"
 # remove ssh file with keys
 > rm -rf ~/.ssh
