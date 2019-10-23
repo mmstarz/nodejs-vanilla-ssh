@@ -12,8 +12,10 @@ steps:
 2. create ssh key 
 > ssh-keygen -t rsa -b 4096 -C "new comment"
 3. register and run new private key file
+
 for windows
 > eval $(ssh-agent -s)
+
 for Linux 
 > eval "$(ssh-agent -s)"
 
