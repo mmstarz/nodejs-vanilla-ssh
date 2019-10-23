@@ -55,4 +55,8 @@ at Windows explorer address bar or through windows+R command
 # To delete a single entry from known_hosts
 > ssh-keygen -R "hostname or IP address"
 # remove ssh file with keys
+<<<<<<< HEAD
 > rm -rf ~/.ssh
+=======
+> rm -rf ~/.ssh
+>>>>>>> 2776ca60194acc0b1145d7ced9f03a7c35525a8a
