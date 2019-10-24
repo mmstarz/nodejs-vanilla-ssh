@@ -22,10 +22,14 @@ exports.forecast = (lat, long, cb) => {
         daily: { data }
       } = body;
 
+      // console.log(data);
+
       const result = {
         long: `It is: ${temperature} degrees out. And there is a ${precipProbability}% chance of rain.`,
         short: `${data[0].summary}.`,
-        timezone
+        timezone: `Timezone: ${timezone}`,
+        tempH: `Temperature high today is: ${data[0].temperatureHigh} celsius deg.`,
+        tempL: `And low is: ${data[0].temperatureLow} celsius deg.`
       };
 
       return cb(undefined, result);

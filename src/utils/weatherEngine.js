@@ -15,14 +15,14 @@ const weatherEngine = address => {
       forecast(
         lat,
         long,
-        (err, { short = null, long = null, timezone = null }) => {
+        (err, { short = null, long = null, timezone = null, tempH = null, tempL = null }) => {
           if (err) reject({ errorMessage: err });
 
           // console.log(timezone + " timezone.");
           // console.log(long);
           // console.log(short);
 
-          resolve({ timezone, short, long, loc });
+          resolve({ timezone, short, long, loc, tempH, tempL });
         }
       );
     });

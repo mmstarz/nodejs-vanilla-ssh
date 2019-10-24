@@ -11,10 +11,12 @@ console.log("JS file loaded");
 const form = document.querySelector("form");
 const address = document.querySelector("#address");
 const successSearch = document.querySelector("#search-info");
-const short = successSearch.querySelector(".short");
-const long = successSearch.querySelector(".long");
-const loc = successSearch.querySelector(".location");
 const tz = successSearch.querySelector(".timezone");
+const loc = successSearch.querySelector(".location");
+const long = successSearch.querySelector(".long");
+const short = successSearch.querySelector(".short");
+const tempH = successSearch.querySelector(".tempH");
+const tempL = successSearch.querySelector(".tempL");
 const resultsSearch = document.querySelector(".search-results");
 
 const searchButton = document.querySelector(".search-form button");
@@ -41,11 +43,15 @@ closeButton.addEventListener("click", () => {
   loc.textContent = "";
   long.textContent = "";
   short.textContent = "";
+  tempH.textContent = "";
+  tempL.textContent = "";
 
   tz.classList.remove("appear");
   loc.classList.remove("appear");
   long.classList.remove("appear");
   short.classList.remove("appear");
+  tempH.classList.remove("appear");
+  tempL.classList.remove("appear");
 
   resultsSearch.classList.remove("loading");
   successSearch.classList.remove("found");
@@ -58,11 +64,15 @@ const preSearch = () => {
   loc.textContent = "";
   long.textContent = "";
   short.textContent = "";
+  tempH.textContent = "";
+  tempL.textContent = "";
 
   tz.classList.remove("appear");
   loc.classList.remove("appear");
   long.classList.remove("appear");
   short.classList.remove("appear");
+  tempH.classList.remove("appear");
+  tempL.classList.remove("appear");
 
   resultsSearch.classList.add("loading");
   successSearch.classList.remove("found");
@@ -76,11 +86,15 @@ const successFound = data => {
   loc.classList.add("appear");
   long.classList.add("appear");
   short.classList.add("appear");
+  tempH.classList.add("appear");
+  tempL.classList.add("appear");
 
-  tz.textContent = "Timezone: " + data.timezone;
+  tz.textContent = data.timezone;
   loc.textContent = data.loc;
   long.textContent = data.long;
   short.textContent = data.short;
+  tempH.textContent = data.tempH;
+  tempL.textContent = data.tempL;
 };
 
 const failFound = data => {

@@ -3,6 +3,8 @@
 <body>
     {{>header}}
     <div class="main">
+
+        <div class="extr-title">Author</div>
         <div class="card">
             <div class="photo" style="background: url({{image}}) 50% 10% / cover no-repeat !important"></div>
             <div class="details">
@@ -13,7 +15,44 @@
                 <p>Framework: {{skills.framework}}</p>
                 <p>Database: {{skills.database}}</p>
             </div>
-        </div>        
+        </div>
+
+        <div class="extr-title">Darksky</div>
+        <div class="card">
+            <div class="photo-utils"
+                style="background: url(../images/darksky.png) 50% 20% / cover no-repeat !important"></div>
+            <div class="details-utils-ds">
+                <p>This web app is using: https://darksky.net/ to fetch the forecast.
+                </p>
+                <p>Dark Sky is the most accurate source of hyperlocal weather information. With down-to-the-minute
+                    forecasts, you’ll know exactly when the rain will start or stop, right where you're standing. It's
+                    almost like magic.
+                </p>
+                <p>
+                    Powered by our own homegrown weather service, Dark Sky is the best source of accurate weather
+                    forecasts to help you plan your life.
+                </p>
+            </div>
+        </div>
+
+        <div class="extr-title">Mapbox</div>
+        <div class="card">
+            <div class="photo-utils"
+                style="background: url(../images/mapbox.webp) 50% 10% / cover no-repeat !important"></div>
+            <div class="details-utils-mb">
+                <p>This web app is using: https://www.mapbox.com/ for geocode operations.</p>
+                <p>
+                    Mapbox provides many tools to build maps into your website or web-based application.
+                </p>
+                <p>
+                    Geocoding library lets you turn coordinates into addresses or addresses into coordinates.
+                </p>
+                <p>
+                    Embed extensible, custom maps, location search, and turn by turn directions into your app, built on
+                    a network of over 600 million monthly users.
+                </p>
+            </div>
+        </div>
     </div>
     {{>footer}}
 </body>

@@ -23,6 +23,62 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+
+/* headlines */
+
+h1, h4 {
+    margin: 0;
+    text-align: center;
+    color: #fc512f;
+    text-shadow: 2px 2px 10px #fe7747;
+}
+
+h1 {
+    font-size: calc(7px + 100vh / 50);
+}
+
+h4 {
+    font-size: calc(3px + 100vh / 50);
+}
+
+.extr-title {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #FFF59D;
+    text-align: center;
+    text-shadow: 2px 2px 10px black;
+    z-index: 2;
+    height: 2em;
+    font-weight: 600;
+}
+
+.extr-title::after {
+    z-index: -2;
+    content: "";
+    position: absolute;
+    width: 6em;
+    padding: 1em;
+    border: 0;
+    border-radius: 5px;
+    background: #FFEB3B;
+    animation: popup 1s linear infinite;
+}
+
+@keyframes popup {
+    from {
+        background: linear-gradient(135deg, #3c81af 20%, #dde0e6 40%, #d4e0de 60%, #4aa7ad 90%);
+        transform: rotate(0deg) translateX(3px) rotate(0deg);
+    }
+    to {
+        background: linear-gradient(35deg, #db4de0 20%, #e4e4db 40%, #dfe0d8 60%, #c154ec 80%);
+        transform: rotate(360deg) translateX(3px) rotate(-360deg);
+    }
+}
+
+
 /* input */
 
 @keyframes autofill {
@@ -160,50 +216,6 @@ header, footer {
 }
 
 
-/* headlines */
-
-h1, h4 {
-    margin: 0;
-    text-align: center;
-    color: #fc512f;
-    text-shadow: 2px 2px 10px #fe7747;
-}
-
-h1 {
-    font-size: calc(7px + 100vh / 50);
-}
-
-h4 {
-    font-size: calc(3px + 100vh / 50);
-}
-
-
-/* info card */
-
-.card {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-
-.photo, .details {
-    width: 50%;
-    height: 15em;
-}
-
-.details {
-    background: #0000007a;
-}
-
-p {
-    color: #fc512f;
-    text-shadow: 2px 2px 10px #fe7747;
-    margin: 1em;
-    font-weight: 500;
-}
-
-
 /*
 =====================================
             SEARCH SECTION
@@ -281,25 +293,26 @@ p {
     transition: opacity .5s ease-out;
 }
 
-.location, .long, .short, .timezone {
+.location, .long, .short, .timezone, .tempL, .tempH {
+    font-weight: 600;
     color: #364146;
     text-shadow: 2px 2px 10px #09efd9;
 }
 
-.timezone, .short {
+.timezone, .short, .tempL {
     transform: translateX(-100%);
 }
 
-.location, .long {
+.location, .long, .tempH {
     transform: translateX(200%);
 }
 
-.timezone.appear, .short.appear {
+.timezone.appear, .short.appear, .tempH.appear {
     transform: translateX(0%);
     transition: transform .5s ease-in;
 }
 
-.location.appear, .long.appear {
+.location.appear, .long.appear, .tempL.appear {
     transform: translateX(0%);
     transition: transform .5s ease-in;
 }
@@ -317,13 +330,13 @@ p {
     right: 0px;
     background: #00000085;
     width: 2em;
-    height: 2em;    
+    height: 2em;
     margin: 0.5em;
 }
 
 .close-dash-one {
     width: 100%;
-    padding: .1em;    
+    padding: .1em;
     position: relative;
     top: 46%;
     transform: rotate(45deg) scale(.8);
@@ -332,12 +345,13 @@ p {
 
 .close-dash-two {
     width: 100%;
-    padding: .1em;    
+    padding: .1em;
     position: relative;
     top: 38%;
     transform: rotate(-45deg) scale(.8);
     transition: transform .5s ease-out;
 }
+
 
 /*
 =====================================
@@ -356,7 +370,7 @@ p {
 }
 
 @keyframes minOne {
-    0% {        
+    0% {
         transform: scale(1) rotate(45deg);
     }
     30% {
@@ -365,13 +379,13 @@ p {
     60% {
         transform: scale(1) rotate(135deg);
     }
-    100% {        
+    100% {
         transform: scale(.8) rotate(135deg);
     }
 }
 
 @keyframes minTwo {
-    0% {       
+    0% {
         transform: scale(1) rotate(-45deg);
     }
     30% {
@@ -380,7 +394,7 @@ p {
     60% {
         transform: scale(1) rotate(45deg);
     }
-    100% {        
+    100% {
         transform: scale(.8) rotate(45deg);
     }
 }
@@ -440,6 +454,7 @@ p {
     }
 }
 
+
 /* animations */
 
 @keyframes btn-press {
@@ -470,10 +485,58 @@ p {
 }
 
 
+/*
+======================================
+            ABOUT PAGE
+======================================
+*/
+
+
+/* info card */
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo, .details {
+    width: 50%;
+    height: 15em;
+}
+
+.photo-utils, .details-utils-mb, .details-utils-ds {
+    width: 50%;
+    height: 24em;
+}
+
+.details, .details-utils-mb {
+    background: #636363bf;  
+}
+
+.details-utils-ds {    
+    background: #000000bf
+}
+
+.details p, .details-utils-mb p {
+    margin: 1em;
+    font-weight: 500;    
+    color: #90CAF9;
+    text-shadow: 2px 2px 10px #455A64;
+}
+
+.details-utils-ds p {
+    margin: 1em;
+    font-weight: 500;
+    color: #fc512f;
+    text-shadow: 2px 2px 10px #fe7747;    
+}
+
 /* media */
 
 @media (max-width: 414px) {
-    .photo, .details {
+    .photo, .details, .photo-utils, .details-utils-mb, .details-utils-ds {
         width: 100%;
     }
 }
